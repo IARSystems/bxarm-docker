@@ -4,7 +4,7 @@ The [IAR build tools for Linux hosts](https://www.iar.com/iar-embedded-workbench
 Please reach out to [fae@iar.com](mailto:fae@iar.com?subject=Tell%20me%20more%20about%20bxarm-docker)
  if you have any questions or would like to learn how to get access to them.
 
-This tutorial provides the fundamental steps on how to create a __BXARM Docker image__ and how to run it on a *[Docker](https://www.docker.com/) container*. Before you start the walkthrough, make sure you have a non-root superuser account - *a user with __sudo__ privileges* - if you need to install the Docker engine on the Ubuntu host. If you already have the Docker engine in place, the standard user account has to belong to the __docker__ group. This tutorial also assumes that you already have familiarity on basic usage of *Ubuntu, Bash* and *Docker*.
+This tutorial provides the fundamental steps on how to create a __BXARM Docker image__ and how to run it on a *[Docker](https://www.docker.com/) container*. Before you start the walkthrough, make sure you have a non-root superuser account - *a user with __sudo__ privileges* - if you need to install the Docker engine on the Ubuntu host. If you already have the Docker engine in place, the standard user account has to belong to the __docker__ group. This tutorial also assumes that you already have familiarity on basic usage of *Ubuntu, Bash, Git* and *Docker*.
 
 ### Table of Contents
 
@@ -84,7 +84,7 @@ $ ./bxarm-docker/scripts/lms_setup -s <LMS2 server IP>
 
 ## How to run BXARM Docker
 
-Now it is finally time to test your brand new __BXARM Docker image__ running it within a Docker container. As the Docker command line to run the container is lengthy to type every single time, it is much more convenient to create an alias and make it permanently available on the *.bashrc*. The one liner that accomplishes it for the current user is: 
+Now it is finally time to test your brand new __BXARM Docker image__ running it within a Docker container. As the Docker command line to run the container is lengthy to type every single time, it is much more convenient to create an alias and make it permanently available on the *.bash_aliases*. The one liner that accomplishes it for the current user is: 
 
 ```sh
 # Creates an alias as a shorthand to run the BXARM Docker image in a container

@@ -33,11 +33,14 @@ $ sudo apt update
 $ sudo apt install apt-transport-https ca-certificates curl gnupg-agent docker-ce docker-ce-cli containerd.io
 
 # Add the current user to the docker group
-$ usermod -a -G docker $USER
+$ sudo usermod -a -G docker $USER
+
+# Reload the groups to the current $USER
+$ su - $USER
 
 # Make the Docker service available since boot
-$ systemctl start docker
-$ systemctl enable docker
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
 
 # Test the Docker installation
 $ docker run hello-world
@@ -47,8 +50,10 @@ $ docker run hello-world
 
 Now it is time to clone the __bxarm-docker__ repository.
 
+* Remember to update *GitHub username* with your own GitHub username.
+
 ```sh
-$ git clone https://github.com/IARSystems/bxarm-docker.git
+$ git clone https://<GitHub username>@github.com/IARSystems/bxarm-docker.git
 ````
 
 ## Build a BXARM Docker image

@@ -35,7 +35,7 @@ $ sudo apt install apt-transport-https ca-certificates curl gnupg-agent docker-c
 # Add the current user to the docker group
 $ sudo usermod -a -G docker $USER
 
-# Reload the groups to the current $USER
+# Reload the current $USER so the new group takes effect immediately
 $ su - $USER
 
 # Make the Docker service available since boot
@@ -50,10 +50,8 @@ $ docker run hello-world
 
 Now it is time to clone the __bxarm-docker__ repository.
 
-* Remember to update *GitHub username* with your own GitHub username.
-
 ```sh
-$ git clone https://<GitHub username>@github.com/IARSystems/bxarm-docker.git
+$ git clone https://github.com/IARSystems/bxarm-docker.git
 ````
 
 ## Build a BXARM Docker image
@@ -78,7 +76,7 @@ This section shows how to configure the host to make use of a __LMS2__ (*License
 
 ```sh
 # Enables the execution bit for the license setup script
-$ chmod +x ./bxarm-docker/scripts/lms_setup
+$ chmod a+x ./bxarm-docker/scripts/lms_setup
 
 # Configure the host to use a license from a LMS2 network license server
 $ ./bxarm-docker/scripts/lms_setup -s <LMS2 server IP> 
@@ -90,7 +88,7 @@ Now it is finally time to test your brand new __BXARM Docker image__ running it 
 
 ```sh
 # Creates an alias as a shorthand to run the BXARM Docker image in a container
-$ alias bxdocker='docker run -v $(pwd):/build -v $HOME/.lms:/.lms iar/bxarm-8.50.4-261' >> ~/.bashrc && source ~/.bashrc
+$ echo "alias bxdocker='docker run -v $(pwd):/build -v $HOME/.lms:/.lms iar/bxarm-8.50.4-261'" >> ~/.bash_aliases && . ~/.bash_aliases
 ```
 
 From this point onwards, `bxdocker` becomes the shorthand for the lengthy `docker run ...` command, always available:
@@ -102,7 +100,7 @@ And, in a similar manner, it is also possible to run a container interactively.
 
 ```sh
 # Creates an alias as a shorthand to interactively run the BXARM Docker image in a container
-$ alias bxdockerit='docker run -v $(pwd):/build -v $HOME/.lms:/.lms -it iar/bxarm-8.50.4-261' >> ~/.bashrc && source ~/.bashrc
+$ echo "alias bxdockerit='docker run -v $(pwd):/build -v $HOME/.lms:/.lms -it iar/bxarm-8.50.4-261'" >> ~/.bash_aliases && . ~/.bash_aliases
 
 $ bxdockerit
 ```

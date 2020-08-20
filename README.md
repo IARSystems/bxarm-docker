@@ -1,6 +1,6 @@
 # Tutorial: Docker Images for IAR Build tools on Linux hosts
 
-The [IAR build tools for Linux hosts](https://www.iar.com/iar-embedded-workbench/build-tools-for-linux/) are downloadable directly from our customer's portal at [IAR My Pages](http://iar.com/mypages). 
+The [IAR build tools for Linux hosts][iar-bx-url] are downloadable directly from our customer's portal at [IAR My Pages](http://iar.com/mypages). 
 Please reach out to [fae@iar.com](mailto:fae@iar.com?subject=Tell%20me%20more%20about%20bxarm-docker)
  if you have any questions or would like to learn how to get access to them.
 
@@ -110,3 +110,5 @@ $ bxdockerit
 And that is how it can be done. Keep in mind that this mini tutorial is only intended to provide you with a quick start towards our [IAR Build Tools for Linux hosts](https://www.iar.com/iar-embedded-workbench/build-tools-for-linux) within Docker scenarios. It is definitely not a replacement for the extensive [Docker documentation](https://docs.docker.com/). The steps described for creating a bare minimal __BXARM Docker Image__ sum up as a cornerstone for many existing build server topologies. The best aspect of starting with a [__Dockerfile__](images/Dockerfile) is that, taking it as a template for creating your very own image from scratch, also brings the benefit of empowering you towards a wide range of image customization possibilites, in accordance with your specific build server topology needs.
 
 Questions? Feel free to reach out to us via [fae@iar.com](mailto:fae@iar.com?subject=Tell%20me%20more%20about%20bxarm-docker).
+
+[iar-bx-url]: https://www.iar.com/bx/

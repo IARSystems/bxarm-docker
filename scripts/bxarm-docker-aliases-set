@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# Copyright (c) 2020 IAR Systems AB
+#
+# bxarm-docker-aliases-set
+#
+# Create aliases for the bxarm-docker image executables
+#
+# See LICENSE.md for detailed license information
+#
+
+alias bxarm-docker-default='docker run --rm -v $PWD:/build -v $IAR_LMS_SETTINGS_DIR:/.lms iarsystems/bxarm-8.50.6'
+
+# Aliases for the arm/bin executables
+alias iasmarm='bxarm-docker-default iasmarm'
+alias icstat='bxarm-docker-default icstat'
+alias ielfdumparm='bxarm-docker-default ielfdumparm'
+alias ilinkarm='bxarm-docker-default ilinkarm'
+alias isymexport='bxarm-docker-default isymexport'
+alias ireport='bxarm-docker-default ireport'
+alias iccarm='bxarm-docker-default iccarm'
+alias ichecks='bxarm-docker-default ichecks'
+alias iexe2obj='bxarm-docker-default iexe2obj'
+alias ielftool='bxarm-docker-default ielftool'
+alias iobjmanip='bxarm-docker-default iobjmanip'
+alias iarchive='bxarm-docker-default iarchive '
+
+# Aliases for the common/bin
+alias iarbuild='bxarm-docker-default iarbuild'
+
+# Aliases for license tools
+alias lightlicensemanager='bxarm-docker-default lightlicensemanager'
+alias licenseinfo='bxarm-docker-default licenseinfo'
+
+# Alias for the iteractive container
+alias bxarm-docker-interactive='docker run --rm -v $PWD:/build -v $IAR_LMS_SETTINGS_DIR:/.lms -it iarsystems/bxarm-8.50.6'

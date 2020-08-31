@@ -1,1 +1,7 @@
-bxarm*.tgz
+**/*.deb
+
+tests/*/Debug
+tests/*/Release
+tests/*/settings
+tests/*/*.dep
+

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#
+# Copyright (c) 2020 IAR Systems AB
+#
+# bxarm-docker-aliases-unset
+#
+# Unset the aliases for the bxarm-docker image executables
+#
+# See LICENSE.md for detailed license information
+#
+
+unalias bxarm-docker-default     2>/dev/null
+
+# Aliases for the arm/bin executables
+unalias iasmarm                  2>/dev/null
+unalias icstat                   2>/dev/null
+unalias ielfdumparm              2>/dev/null
+unalias ilinkarm                 2>/dev/null
+unalias isymexport               2>/dev/null
+unalias ireport                  2>/dev/null
+unalias iccarm                   2>/dev/null
+unalias ichecks                  2>/dev/null
+unalias iexe2obj                 2>/dev/null
+unalias ielftool                 2>/dev/null
+unalias iobjmanip                2>/dev/null
+unalias iarchive                 2>/dev/null
+
+# Aliases for the common/bin
+unalias iarbuild                 2>/dev/null
+unalias licenseinfo              2>/dev/null
+unalias lightlicensemanager      2>/dev/null
+
+unalias bxarm-docker-interactive 2>/dev/null
+
+

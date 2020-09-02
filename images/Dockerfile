@@ -10,7 +10,7 @@
 
 # Create a Docker Image for BXARM based 
 #  on the Docker Hub Ubuntu image
-FROM ubuntu:18.04 as bxarm-8.50.4-261
+FROM ubuntu:18.04 as bxarm-8.50.6
 
 # The USER_ID argument will allow to the Docker Image user 
 #  to inherit the same UID and GID from the user creating the Docker image
@@ -19,14 +19,15 @@ ARG  USER_ID
 # These environment variables will also become available
 #  when running a container. The IAR build tools 
 #  are going to be on the search path
-ENV  IAR_BXARM_PATH="/IARSystems"
+ENV  IAR_PATH="/opt/iarsystems"
+ENV  IAR_BXARM_PATH="${IAR_PATH}/bxarm-8.50.6"
 ENV  IAR_LMS_SETTINGS_DIR="/.lms"
 ENV  IAR_BUILD_PATH="/build"
-ENV  PATH="${IAR_BXARM_PATH}/IAR-BuildTools-Arm-8.50.4/bin:$PATH"
+ENV  PATH="${IAR_BXARM_PATH}/arm/bin:${IAR_BXARM_PATH}/common/bin:$PATH"
 
 # Updates the Ubuntu packages, install sudo and cleanup
 RUN  apt-get update && \
-     apt-get install sudo && \
+     apt-get install sudo libsqlite3-0 && \
      apt-get clean autoclean && \
      apt-get autoremove -y && \
      rm -rf /var/lib/apt/lists/*
@@ -38,13 +39,12 @@ RUN  useradd --create-home --uid ${USER_ID} iaruser && \
      echo "iaruser:iaruser" | chpasswd && \
      adduser iaruser sudo 
 
-# Copies the tarball from the host to the image
-COPY bxarm.tgz ${IAR_BXARM_PATH}/bxarm.tgz
+# Copies the .deb package from the host to the image
+COPY bxarm-8.50.6.deb /tmp
 
-# Unpack the BXARM tarball and remove the .tgz
-WORKDIR ${IAR_BXARM_PATH}
-RUN  tar xzf ${IAR_BXARM_PATH}/bxarm.tgz && \ 
-     rm ${IAR_BXARM_PATH}/bxarm.tgz
+# Install the .deb package and then the installer from the image
+RUN  dpkg --install /tmp/bxarm-8.50.6.deb && \ 
+     rm /tmp/bxarm-8.50.6.deb
 
 # Creates and sets the build directory
 RUN  mkdir ${IAR_BUILD_PATH} && \
@@ -58,6 +58,6 @@ RUN  mkdir -p ${IAR_LMS_SETTINGS_DIR} && \
      chmod g+rwx -R ${IAR_LMS_SETTINGS_DIR} && \
      chown iaruser:iaruser ${IAR_LMS_SETTINGS_DIR} 
 
-# The container will start from the build directory
+# When the container is started, it will start from the ${IAR_BUILD_PATH} directory
 USER iaruser 
-WORKDIR /build
+WORKDIR ${IAR_BUILD_PATH}

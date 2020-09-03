@@ -222,4 +222,4 @@ And that is how it can be done. Keep in mind that this mini tutorial is only int
 [lms2-url]: https://www.iar.com/support/tech-notes/licensing/iar-license-server-tools-lms2/
 [repo-wiki-url]: https://github.com/IARSystems/bxarm-docker/wiki
 [repo-new-issue-url]: https://github.com/IARSystems/bxarm-docker/issues/new
-[repo-old-issue-url]: https://github.com/IARSystems/bxarm-docker/issues?q=is%3Aissue+is%3Aclosed
+[repo-old-issue-url]: https://github.com/IARSystems/bxarm-docker/issues?q=is%3Aissue+is%3Aopen%7Cclosed

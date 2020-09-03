@@ -2,7 +2,9 @@
 
 The [IAR build tools for Linux hosts][iar-bx-url] are downloadable directly from our customer's portal at [IAR My Pages][iar-myp-url]. 
 Please feel free to reach out to [fae@iar.com][fae-mail] if you would like to learn how to get access to them.
-If you have questions, you can post them [here][repo-new-issue-url].
+
+If you have questions, you can also check the [__bxarm-docker wiki__][repo-wiki-url], or [here][repo-old-issue-url] for earlier questions.
+If you have a new question, post it [here][repo-new-issue-url].
 
 This tutorial provides the fundamental steps on how to create a __BXARM Docker image__ and how to run it on a [_Docker Container_][docker-container-url]. 
 
@@ -218,4 +220,6 @@ And that is how it can be done. Keep in mind that this mini tutorial is only int
 [docker-docs-ubuntu-url]: https://docs.docker.com/engine/install/ubuntu/
 [lms-port-url]: https://www.iar.com/support/tech-notes/licensing/iar-license-server-how-to-open-udp-5093/
 [lms2-url]: https://www.iar.com/support/tech-notes/licensing/iar-license-server-tools-lms2/
+[repo-wiki-url]: https://github.com/IARSystems/bxarm-docker/wiki
 [repo-new-issue-url]: https://github.com/IARSystems/bxarm-docker/issues/new
+[repo-old-issue-url]: https://github.com/IARSystems/bxarm-docker/issues?q=is%3Aissue+is%3Aclosed

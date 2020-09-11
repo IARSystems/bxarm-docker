@@ -104,13 +104,13 @@ From this point onwards, when invoking the build tools, those will all refer to 
 $ alias
 ```
 
-__Note__: The standard alisases make the usage of the build tools seamless. Keep in mind that they are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so by using the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
+__Note__: The [provided alisases](scripts/bxarm-docker-aliases-set) make the usage of the build tools seamless with projects located on the current directory (`$PWD`) and its subdirectories. Keep in mind that all these aliases are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so by using the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
 ```sh
 # Unset the standard bxarm-docker aliases 
 $ source bxarm-docker/scripts/bxarm-docker-aliases-unset
 ```
 
-For this tutorial we will use the standard aliases when running the build tools from the BXARM Docker image.
+For this tutorial we will use the aliases from the provided script when running the build tools from the BXARM Docker image.
 
 ## Host license configuration
 

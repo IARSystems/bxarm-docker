@@ -104,7 +104,7 @@ From this point onwards, when invoking the build tools, those will all refer to 
 $ alias
 ```
 
-> __Note__: The [provided aliasses](scripts/bxarm-docker-aliases-set) make the usage of the build tools seamless with projects located on the current directory (`$PWD`) and its subdirectories. Keep in mind that all these aliases are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so by using the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
+> __Note__: The [provided aliases](scripts/bxarm-docker-aliases-set) make the usage of the build tools seamless with projects located on the current directory (`$PWD`) and its subdirectories. Keep in mind that all these aliases are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so by using the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
 > ```sh
 > # Unset the standard bxarm-docker aliases 
 > $ source bxarm-docker/scripts/bxarm-docker-aliases-unset

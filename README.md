@@ -169,7 +169,7 @@ To build an `.ewp` project, use `iarbuild`.
 # Syntax: iarbuild <project>.ewp -build <configuration> [-parallel <cpu-cores>]
 
 # For example, run:
-$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "Debug" -parallel 2
+$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "Debug" -parallel $(nproc)
 ```
 
 With `iarbuild`, it is also possible to run C-STAT, the Static Analysis tool. It will use the same checks that were selected and saved on the `<project>.ewt` file.
@@ -177,7 +177,7 @@ With `iarbuild`, it is also possible to run C-STAT, the Static Analysis tool. It
 # Syntax: iarbuild <project>.ewp -c_stat_analyze <configuration> [-parallel <cpu-cores>]
 
 # For example, run:
-$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -cstat_analyze "Debug" -parallel 2
+$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -cstat_analyze "Debug" -parallel $(nproc)
 ```
 
 After running __C-STAT__, a SQLite database is generated. With the `cstat.db` contents, you can now quickly generate a _full HTML report_.
@@ -195,7 +195,7 @@ $ bxarm-docker-interactive
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-iaruser@96a4986f8535:/build$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "*" -parallel 2
+iaruser@96a4986f8535:/build$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "*" -parallel $(nproc)
 ...
 ...
 Total number of errors: 0

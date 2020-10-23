@@ -176,7 +176,7 @@ $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug"
 > * The `<build-configuration>` parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
 > * The `-parallel <cpu-cores>` parameter is __optional__. It can significantly reduce the required time for building when the PC Host's has 2 or more CPU cores.
 
-With `iarbuild`, it is also possible to perform static analysis with C-STAT. It will use the same checks that were selected and saved on the `<project>.ewt` file.
+With `iarbuild`, it is also possible to perform static analysis with [C-STAT](https://www.iar.com/cstat). It will use the same checks that were selected and saved on the `<project>.ewt` file.
 ```sh
 # Syntax: iarbuild <project>.ewp -c_stat_analyze <build-configuration> [-parallel <cpu-cores>]
 
@@ -193,7 +193,7 @@ $ ireport --db bxarm-docker/tests/c-stat/Debug/Obj/cstat.db --project bxarm-dock
 HTML report generated: bxarm-docker/tests/c-stat/c-stat-report.html
 ```
 
-The [bxarm-dockar-alias-set](scripts/bxarm-docker-aliases-set) script brings the `bxarm-docker-interactive` alias to spawn a container in interactive mode:
+The [bxarm-docker-alias-set](scripts/bxarm-docker-aliases-set) script brings the `bxarm-docker-interactive` alias to spawn a container in _interactive mode_:
 ```
 $ bxarm-docker-interactive
 To run a command as administrator (user "root"), use "sudo <command>".

@@ -164,17 +164,21 @@ In this section, you will find many examples on how to use the build tools with 
 
 For a more complete description of the existing options for any build tool, invoke the tool without any parameters.
 
-To build an `.ewp` project, use `iarbuild`.
+It is straightforward to build an `.ewp` project with `iarbuild`.
 ```sh
-# Syntax: iarbuild <project>.ewp -build <configuration> [-parallel <cpu-cores>]
+# Syntax: iarbuild <project>.ewp <build-configuration> [-parallel <cpu-cores>]
 
 # For example, run:
-$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "Debug" -parallel $(nproc)
+$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug" 
 ```
 
-With `iarbuild`, it is also possible to run C-STAT, the Static Analysis tool. It will use the same checks that were selected and saved on the `<project>.ewt` file.
+> __Notes__
+> * The `<build-configuration>` parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
+> * The `-parallel <cpu-cores>` parameter is __optional__. It can significantly reduce the required time for building when the PC Host's has 2 or more CPU cores.
+
+With `iarbuild`, it is also possible to perform static analysis with C-STAT. It will use the same checks that were selected and saved on the `<project>.ewt` file.
 ```sh
-# Syntax: iarbuild <project>.ewp -c_stat_analyze <configuration> [-parallel <cpu-cores>]
+# Syntax: iarbuild <project>.ewp -c_stat_analyze <build-configuration> [-parallel <cpu-cores>]
 
 # For example, run:
 $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -cstat_analyze "Debug" -parallel $(nproc)
@@ -189,7 +193,7 @@ $ ireport --db bxarm-docker/tests/c-stat/Debug/Obj/cstat.db --project bxarm-dock
 HTML report generated: bxarm-docker/tests/c-stat/c-stat-report.html
 ```
 
-There is an alias readily available for running the container in interactive mode:
+The [bxarm-dockar-alias-set](scripts/bxarm-docker-aliases-set) script brings the `bxarm-docker-interactive` alias to spawn a container in interactive mode:
 ```
 $ bxarm-docker-interactive
 To run a command as administrator (user "root"), use "sudo <command>".
@@ -203,7 +207,6 @@ Total number of warnings: 0
 iaruser@96a4986f8535:/build$ exit
 ```
 
-* To speed up the build time, replace `<cpu-cores>` by the amount of cores in the Host's CPU.
 
 ## Summary
 

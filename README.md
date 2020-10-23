@@ -166,15 +166,17 @@ For a more complete description of the existing options for any build tool, invo
 
 It is straightforward to build an `.ewp` project with `iarbuild`.
 ```sh
-# Syntax: iarbuild <project>.ewp <build-configuration> [-parallel <cpu-cores>]
+# Syntax: iarbuild <project>.ewp [commands] <build-configuration> [-parallel <cpu-cores>]
 
 # For example, run:
 $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug" 
 ```
 
 > __Notes__
-> * The `<build-configuration>` parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
-> * The `-parallel <cpu-cores>` parameter is __optional__. It can significantly reduce the required time for building when the PC Host's has 2 or more CPU cores.
+> * The __`[commands]`__ parameter is __optional__. If ommited, it will default to `-make`. Other commonly used commands are `-build` and `-clean`.
+> * The __`<build-configuration>`__ parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
+> * The __`-parallel <cpu-cores>`__ parameter is __optional__. It can significantly reduce the required time for building when the PC Host's has 2 or more CPU cores.
+
 
 ---
 With `iarbuild`, it is also possible to perform static analysis with [C-STAT](https://www.iar.com/cstat). It will use the same checks that were selected and saved on the `<project>.ewt` file.
@@ -223,7 +225,6 @@ And that is how it can be done. Keep in mind that this mini tutorial is only int
 
 [iar-bx-url]: https://www.iar.com/bx/
 [iar-myp-url]: https://iar.com/mypages/
-[fae-mail]: mailto:fae@iar.com?subject=Tell%20me%20more%20about%20bxarm-docker
 [docker-url]: https://www.docker.com/
 [docker-docs-url]: https://docs.docker.com/
 [docker-container-url]: https://www.docker.com/resources/what-container/

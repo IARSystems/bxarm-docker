@@ -164,7 +164,7 @@ In this section, you will find some examples on how to use the build tools with 
 
 It is straightforward to build an `.ewp` project with `iarbuild`.
 ```sh
-# General syntax: iarbuild <project>.ewp [command] <build-configuration> [-parallel <cpu-cores>] [other-options]
+# Syntax: iarbuild <project>.ewp [command] <build-configuration> [-parallel <cpu-cores>] [other-options]
 
 # For example, run:
 $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug" 

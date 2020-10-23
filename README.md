@@ -191,7 +191,13 @@ After running __C-STAT__, a SQLite database is generated. With the `cstat.db` co
 # Syntax: ireport --db <path-to>/cstat.db --project <path-to>/<project>.ewp [--full] [--output <path-to>/<report-output>.html]
 
 # For example, run:
-$ ireport --db bxarm-docker/tests/c-stat/Debug/Obj/cstat.db --project bxarm-docker/tests/c-stat/c-stat.ewp --full --output bxarm-docker/tests/c-stat/c-stat-report.html 
+$ ireport --db bxarm-docker/tests/c-stat/Debug/Obj/cstat.db \
+          --project bxarm-docker/tests/c-stat/c-stat.ewp \
+          --full \
+          --output bxarm-docker/tests/c-stat/c-stat-report.html
+```
+The output will be:
+```
 HTML report generated: bxarm-docker/tests/c-stat/c-stat-report.html
 ```
 

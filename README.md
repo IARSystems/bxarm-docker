@@ -175,7 +175,7 @@ $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug"
 > __Notes__
 > * The __`[command]`__ parameter is __optional__. If ommited, it will default to `-make`. Other commands commonly used when build projects are `-build` or `-clean`.
 > * The __`<build-configuration>`__ parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
-> * The __`-parallel <cpu-cores>`__ parameter is __optional__. It can significantly reduce the required time for building when the PC Host's has 2 or more CPU cores.
+> * The __`-parallel <cpu-cores>`__ parameter is __optional__. It can significantly reduce the required time for building when the host PC has 2 or more CPU cores.
 
 
 ---

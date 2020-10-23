@@ -162,8 +162,6 @@ Now it is finally time to test your brand new __BXARM Docker image__ to its full
 
 In this section, you will find some examples on how to use the build tools with a ready-made project named [c-stat.ewp](tests/c-stat).
 
-For a more complete description of the existing options for any build tool, invoke the tool without any parameters.
-
 It is straightforward to build an `.ewp` project with `iarbuild`.
 ```sh
 # General syntax: iarbuild <project>.ewp [command] <build-configuration> [-parallel <cpu-cores>] [other-options]
@@ -176,6 +174,7 @@ $ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp "Debug"
 > * The __`[command]`__ parameter is __optional__. If ommited, it will default to `-make`. Other commands commonly used when build projects are `-build` or `-clean`.
 > * The __`<build-configuration>`__ parameter is __mandatory__. Typically it will be `Debug` or `Release`. This parameter accepts multiple comma-separated build configurations such as `Debug,Release[,MyAnotherCustomBuildConfiguration,...]`. Ultimately this parameter accepts the __` * `__ as wildcard. The wildcard will address all the _build configurations_ in the `<project>`.
 > * The __`-parallel <cpu-cores>`__ parameter is __optional__. It can significantly reduce the required time for building when the host PC has 2 or more CPU cores.
+> * Invoke `iarbuild` with no parameters for a more extensive description on its parameter options.
 
 
 ---

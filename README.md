@@ -211,9 +211,12 @@ The output will be:
 The [bxarm-docker-alias-set](scripts/bxarm-docker-aliases-set) script brings the `bxarm-docker-interactive` alias to spawn a container in _interactive mode_:
 ```
 $ bxarm-docker-interactive
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
+```
+> ```
+> To run a command as administrator (user "root"), use "sudo <command>".
+> See "man sudo_root" for details.
+> ```
+```
 iaruser@96a4986f8535:/build$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -build "*" -parallel $(nproc)
 ```
 > ```

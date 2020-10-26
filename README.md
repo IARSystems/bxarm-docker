@@ -221,9 +221,12 @@ iaruser@96a4986f8535:/build$ iarbuild bxarm-docker/tests/c-stat/c-stat.ewp -buil
 > ...
 > Total number of errors: 0
 > Total number of warnings: 0
-> iaruser@96a4986f8535:/build$ exit
 > ```
 
+Type `exit` to exit from the interactive container:
+```
+iaruser@96a4986f8535:/build$ exit
+```
 
 ## Summary
 

@@ -104,19 +104,20 @@ From this point onwards, when invoking the build tools, those will all refer to 
 $ alias
 ```
 
-> __Note__: The [provided aliases](scripts/bxarm-docker-aliases-set) make the usage of the build tools seamless with projects located on the current directory (`$PWD`) and its subdirectories. Keep in mind that all these aliases are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so by using the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
+> __Note__: The [provided aliases](scripts/bxarm-docker-aliases-set) make the usage of the build tools seamless with projects located on the current directory (`$PWD`) and its subdirectories. Keep in mind that all these aliases are customizable and ultimately optional. If you need to unset them, it is possible to quickly do so with the [__bxarm-docker-aliases-unset__](scripts/bxarm-docker-aliases-unset) script:
 > ```sh
 > # Unset the standard bxarm-docker aliases 
 > $ source bxarm-docker/scripts/bxarm-docker-aliases-unset
 > ```
 
-For this tutorial we will use the aliases from the provided script when running the build tools from the BXARM Docker image.
+For this tutorial we will use the aliases from the provided script when running the build tools from the BXARM Docker _image_.
 
 ## Host license configuration
 
-This section shows how to configure the license on the Host for when using it containerized with Docker.
+This section shows how to configure the license on the Host for when using the build tools from a BXARM Docker _container_.
 
-It requires an [__IAR License Server__][lms2-url] already up, loaded with activated BXARM licenses and reachable from the Host.
+> __Note__
+> * The Host license configuration requires an [__IAR License Server__][lms2-url] already __up__, loaded with __activated__ BXARM licenses and __reachable__ from the Host.
 
 Executing the build tools prior properly setting up the license will result in a fatal error message: _"No license found."_
 ```
@@ -148,6 +149,9 @@ $ lightlicensemanager setup -s <LMS2.server.IP>
 > * Update the `<LMS2.server.IP>` with the actual IP address to the __IAR License Server__. 
 > * It is possible to customize the `IAR_LMS_SETTINGS_DIR` environment variable to point a different location. The location does not necessarily need to belong to the _build tools user_, but requires read/write/execute (`rwx`) access permissions. If the chosen location is volatile, such as `/tmp/.lms`, the Host license setup will need to be run every time after the Host reboots.
 > * There are cases where a Firewall could be preventing the Host from reaching the IAR License Server. IAR Systems provides a [__Tech Note__][lms-port-url] covering such cases.
+> * Access the [__Installation and Licensing User Guide for Linux__][ug-lms2-lx-1-url] for more information.
+
+[ug-lms2-lx-1-url]: https://netstorage.iar.com/SuppDB/Public/UPDINFO/014853/common/doc/lightlicensemanager/UserGuide_LMS2_LX.ENU.pdf
 
 
 Once the license is properly setup, it should be possible to run all the build tools.

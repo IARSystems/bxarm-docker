@@ -35,3 +35,6 @@ alias licenseinfo='bxarm-docker-default licenseinfo'
 
 # Alias for the iteractive container
 alias bxarm-docker-interactive='docker run --rm -v $PWD:/build -v $IAR_LMS_SETTINGS_DIR:/.lms -it iarsystems/bxarm-8.50.6'
+
+# Add Bash autocompletion for IARBuild
+source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/iarbuild-autocompletion.bash

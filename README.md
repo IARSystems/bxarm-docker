@@ -1,7 +1,6 @@
 # Tutorial: Docker images for IAR Build tools on Linux hosts
 
-The [IAR build tools for Linux hosts][iar-bx-url] are downloadable directly from our customer's portal at [IAR My Pages][iar-myp-url]. 
-Please feel free to [contact us](https://www.iar.com/about-us/contact) if you would like to learn how to get access to them.
+The [IAR build tools for Linux hosts][iar-bx-url] requires a separate license. Please feel free to [contact us](https://www.iar.com/about-us/contact) if you would like to learn how to get access to them.
 
 If you have questions, you can also check the [__bxarm-docker wiki__][repo-wiki-url], or [here][repo-old-issue-url] for earlier questions.
 If you have a new question, post it [here][repo-new-issue-url].

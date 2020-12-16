@@ -9,6 +9,9 @@ This tutorial provides the fundamental steps on how to create a __BXARM Docker i
 
 Before you start the walkthrough, make sure you have a non-root superuser account - *a user with __sudo__ privileges* - if you need to install the Docker engine on the Ubuntu Host. If you already have the Docker engine in place, the standard user account has to belong to the __docker__ group. This tutorial also assumes that you already have familiarity on basic usage of *Ubuntu, Bash, Git* and *Docker*.
 
+### Additional Resources
+If you are new to CI/CD, Docker, Jenkins and Self-Hosted Runners or just want to learn more and see the IAR tools in action, you can find an useful selection of recorded webinars about automated building and testing in Linux-based environments [here!][iar-bx-url]
+
 ### Table of Contents
 
 * [Install Docker](#install-docker)

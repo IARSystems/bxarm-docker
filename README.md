@@ -41,8 +41,8 @@ $ sudo apt install apt-transport-https ca-certificates curl gnupg-agent docker-c
 # Add the current user to the docker group
 $ sudo usermod -a -G docker $USER
 
-# Reload the current $USER so the new group takes effect immediately
-$ su - $USER
+# Update the current $USER to be part of the docker group immediately (without the need to logout and login again)
+$ newgrp docker
 
 # Make the Docker service available since boot
 $ sudo systemctl start docker

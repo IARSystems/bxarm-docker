@@ -29,43 +29,43 @@ If you are new to CI/CD, Docker, Jenkins and Self-Hosted Runners or just want to
 The following steps are the typical ones needed to make Docker ready to be used on the Ubuntu host which will hold the Docker images and run the containers. These installation instructions are based on the official ones available in the [_Docker Documentation_][docker-docs-url].
 
 ### Setup the Official Docker Repository
-Go to the Bash shell in your Ubuntu Linux and perform as follows.
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 ```sh
-# Add Docker's official repository GPG (GNU Privacy Guard) key to the package management's keyring 
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+
+Launch the Ubuntu's Bash shell and add Docker's official repository GPG key to the package management keyring.
+```sh
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -   
 ```
 
 Use the following command to set up the __stable__ repository.
 ```sh
-# Adds the official Docker repository to the apt list
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 ### Install the Docker Engine
 Update the `apt` package index, and install the _latest_ version of Docker Engine and containerd.
 ```sh 
-$ sudo apt update && sudo apt -y install docker-ce docker-ce-cli container.io
-```
-In order to use Docker as a non-root user, consider adding your user (referred by the `$USER` environment variable) to the "docker" group.
-```sh
-$ sudo usermod -a -G docker $USER
+$ sudo apt update && sudo apt -y install docker-ce docker-ce-cli containerd.io
 ```
 
-Log out and log back in  so thay your group membership is re-evaluated.
-> __Notes__
->
-> - If testing on a virtual machine, it might be neecssary to restart the VM for the changes to take effect.
-> - On a Ubuntu Linux Desktop, log out of your session completely and then log back in.
-
-On the Bash shell, you can also run the following command to activate the changes to groups immediately
+In order to use Docker as a non-root user, add the user (referred by the `$USER` environment variable) to the "docker" group.
 ```sh
-$ newgrp docker
+$ sudo usermod -aG docker $USER
 ```
+Now log out and log back in so thay your group membership is re-evaluated.
 
-If you want to configure your system in a way Docker is available right after system startup, enable the docker service.
-```sh
-$ sudo systemctl start docker
-$ sudo systemctl enable docker
+As in many Linux distributions using `systemd` to manage which services to start when the system boots, the Docker service can be configured with `systemctl` to start on boot. To automatically start Docker with the system, enable the service.
+```
+$ sudo systemctl enable docker && sudo systemctl start docker
 ```
 
 Verify that your user can run `docker` commands without requiring `sudo` powers.
@@ -77,7 +77,7 @@ This command downloads a test image and runs it in a container. When the contain
 ## Clone the bxarm-docker repository
 
 Now it is time to clone the __bxarm-docker__ repository.
-```
+```sh
 $ git clone https://github.com/IARSystems/bxarm-docker.git
 ```
 
@@ -87,14 +87,12 @@ The commands in this section are for building a __BXARM Docker image__ based on 
 
 Copy the bxarm-`<version>`.deb package to `./bxarm-docker/images/`, the same folder where the __Dockerfile__ is located.
 ```sh
-# Copies the official BXARM .deb package to the images subdirectory
 $ cp -v <path-to>/bxarm-<version>.deb ./bxarm-docker/images/
 ```
 * Update `<path-to>` and `<version>` of the install package accordingly. For this tutorial, we will use __bxarm-8.50.6.deb__.
 
-Build the image with the `docker build` command below.
+Build the Docker image with the `docker build` command as below. The image will be tagged as `iarsystems/bxarm-8.50.6`.
 ```sh
-# Builds the BXARM Docker image tagged as iarsystems/bxarm-8.50.6
 $ docker build --build-arg USER_ID=$(id -u) -t iarsystems/bxarm-8.50.6 --rm=true --force-rm=true ./bxarm-docker/images
 ```
 

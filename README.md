@@ -76,7 +76,7 @@ This command downloads a test image and runs it in a container. When the contain
 
 ## Clone the bxarm-docker repository
 
-Now it is time to clone the __bxarm-docker__ repository.
+Now it is time to clone the __bxarm-docker__ repository. The repository contains a template __Dockerfile__, some scripts and a example project.
 ```sh
 $ git clone https://github.com/IARSystems/bxarm-docker.git
 ```

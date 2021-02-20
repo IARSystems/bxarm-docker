@@ -1,13 +1,13 @@
 # Tutorial: Docker images for IAR Build tools on Linux hosts
 
-The [IAR build tools for Linux hosts][iar-bx-url] requires a separate license. Please feel free to [contact us](https://www.iar.com/about-us/contact) if you would like to learn how to get access to them.
+The [IAR Build Tools on Linux hosts][iar-bx-url] requires a separate license. Please feel free to [contact us](https://www.iar.com/about-us/contact) if you would like to learn how to get access to them.
 
 If you have questions, you can also check the [__bxarm-docker wiki__][repo-wiki-url], or [here][repo-old-issue-url] for earlier questions.
 If you have a new question, post it [here][repo-new-issue-url].
 
 This tutorial provides the fundamental steps on how to create a __BXARM Docker image__ and how to run it on a [_Docker Container_][docker-container-url]. 
 
-Before you start the walkthrough, make sure you have a non-root superuser account - *a user with __sudo__ privileges* - if you need to install the Docker engine on the Ubuntu Host. If you already have the Docker engine in place, the standard user account has to belong to the __docker__ group. This tutorial also assumes that you already have familiarity on basic usage of *Ubuntu, Bash, Git* and *Docker*.
+Before you start the walkthrough, make sure you have a non-root superuser account - *a user with __sudo__ privileges* - if you need to install the _Docker Engine_ on the _Ubuntu host_. If you already have the _Docker Engine_ in place, the standard user account has to belong to the __docker__ group. This tutorial also assumes that you already have familiarity on basic usage of *Ubuntu, Bash, Git* and *Docker*.
 
 ### Additional Resources
 If you are new to CI/CD, Docker, Jenkins and Self-Hosted Runners or just want to learn more and see the IAR tools in action, you can find an useful selection of recorded webinars about automated building and testing in Linux-based environments [here!][iar-bx-url]

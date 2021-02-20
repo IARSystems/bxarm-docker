@@ -15,9 +15,6 @@ If you are new to CI/CD, Docker, Jenkins and Self-Hosted Runners or just want to
 ### Table of Contents
 
 * [Installing Docker](#installing-docker)
-   * [Setup the Official Docker Repository](#setup-the-official-docker-repository)
-   * [Install the Docker Engine](#install-the-docker-engine)
-* [Clone the bxarm-docker repository](#clone-the-bxarm-docker-repository)
 * [Build a BXARM Docker image](#build-a-bxarm-docker-image)
 * [Setup host environment](#setup-host-environment)
 * [Host license configuration](#host-license-configuration)
@@ -74,16 +71,15 @@ $ docker run hello-world
 ```
 This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
 
-## Clone the bxarm-docker repository
-
-Now it is time to clone the __bxarm-docker__ repository. The repository contains a template __Dockerfile__, some scripts and a example project.
-```sh
-$ git clone https://github.com/IARSystems/bxarm-docker.git
-```
 
 ## Build a BXARM Docker image
 
-The commands in this section are for building a __BXARM Docker image__ based on the provided [__Dockerfile__](images/Dockerfile).
+The commands in this section are for building a __BXARM Docker image__ based on the [__Dockerfile__](images/Dockerfile) provided with this repository.
+```sh
+$ git clone https://github.com/IARSystems/bxarm-docker.git
+```
+> __Note__
+> * The repository contains a template __Dockerfile__, which is ready to use with the __bxarm-8.50.6.deb__ installer. Once you get your local copy of the entire repository by cloning it, the [__Dockerfile__](images/Dockerfile) can be edited to match newer versions and/or architectures. The same is true for the accompanying [__scripts__](scripts). The repository also brings an example project to make it easy to perform initial [tests](tests/c-stat).
 
 Copy the bxarm-`<version>`.deb package to `./bxarm-docker/images/`, the same folder where the __Dockerfile__ is located.
 ```sh

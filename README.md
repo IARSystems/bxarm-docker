@@ -74,23 +74,31 @@ This command downloads a test image and runs it in a container. When the contain
 
 ## Build a BXARM Docker image
 
-The commands in this section are for building a __BXARM Docker image__ based on the [__Dockerfile__](images/Dockerfile) provided with this repository.
+The commands in this section are for building a __BXARM Docker image__ based on the template [__Dockerfile__](images/Dockerfile) provided with this repository.
+
+This Dockerfile is ready to be used with the IAR Build Tools for Arm on Linux version 8.50.6. The required installer for this version is `bxarm-8.50.6.deb`.
+
+> __Note__
+> * The repository contains a template __Dockerfile__, which is ready to use with the __bxarm-8.50.6.deb__ installer. Once you get your local copy of the entire repository by cloning it, the [__Dockerfile__](images/Dockerfile) can be edited to match newer versions. The same is true for the optional accompanying [__scripts__](scripts). The repository also brings an example project to make it easy to perform initial [tests](tests/c-stat).
+
+Clone the `bxarm-docker` repository to your local host.
 ```sh
-$ git clone https://github.com/IARSystems/bxarm-docker.git
+$ git clone https://github.com/iarsystems/bxarm-docker.git
+```
+
+Copy the `bxarm-8.50.6.deb` installer package to `~/bxarm-docker/images/`, the same folder where the __Dockerfile__ is located.
+```sh
+$ cp -v <path-to>/bxarm-8.50.6.deb ~/bxarm-docker/images/
 ```
 > __Note__
-> * The repository contains a template __Dockerfile__, which is ready to use with the __bxarm-8.50.6.deb__ installer. Once you get your local copy of the entire repository by cloning it, the [__Dockerfile__](images/Dockerfile) can be edited to match newer versions and/or architectures. The same is true for the accompanying [__scripts__](scripts). The repository also brings an example project to make it easy to perform initial [tests](tests/c-stat).
+> * Update `<path-to>` to the actual location of the `bxarm-8.50.6.deb` install package. 
 
-Copy the bxarm-`<version>`.deb package to `./bxarm-docker/images/`, the same folder where the __Dockerfile__ is located.
+Build the Docker image with the `docker build` command as below. Docker will use the __Dockerfile__ recipe in `~/bxarm-docker/images` to build the image. The image will be tagged as `iarsystems/bxarm-8.50.6`.
 ```sh
-$ cp -v <path-to>/bxarm-<version>.deb ./bxarm-docker/images/
+$ docker build --build-arg USER_ID=$(id -u) -t iarsystems/bxarm-8.50.6 --rm=true --force-rm=true ~/bxarm-docker/images
 ```
-* Update `<path-to>` and `<version>` of the install package accordingly. For this tutorial, we will use __bxarm-8.50.6.deb__.
-
-Build the Docker image with the `docker build` command as below. The image will be tagged as `iarsystems/bxarm-8.50.6`.
-```sh
-$ docker build --build-arg USER_ID=$(id -u) -t iarsystems/bxarm-8.50.6 --rm=true --force-rm=true ./bxarm-docker/images
-```
+> __Note__
+> * In case of a newer `bxarm-<version>.deb`, when building a image, once the __Dockerfile__ is updated to use a newer version, the `-t <tag-name>` parameter can also be updated to reflect the newer `iarsystems/bxarm-<version>` to be created.
 
 In the end, you should have your __BXARM Docker image__ successfully built and tagged as `iarsystems/bxarm-8.50.6:latest`.
 > ```
@@ -109,13 +117,14 @@ In the end, you should have your __BXARM Docker image__ successfully built and t
 
 ## Setup Host environment
 
-In this section, we will take advantage of the Bash __aliases__ so we can simplify how we run every build tool in the BXARM Docker Container.
+In this section, we will take advantage of the Bash __aliases__ so we can simplify how we run the containerized build tools that were installed in the BXARM Docker image.
 
 The __bxarm-docker__ standard aliases are set with the [__bxarm-docker-aliases-set__](scripts/bxarm-docker-aliases-set) script:
 ```sh
-# Set the standard bxarm-docker aliases 
 $ source bxarm-docker/scripts/bxarm-docker-aliases-set
 ```
+> __Note__
+> * This script needs to be updated in case a different tag was used during the Docker image creation. 
 
 From this point onwards, when invoking the build tools, those will all refer to the BXARM Docker Container. You can always check which aliases are currently set in the Host with the __alias__ command:
 ```sh

@@ -81,9 +81,9 @@ This Dockerfile is ready to be used with the IAR Build Tools for Arm on Linux ve
 > __Note__
 > * The repository contains a template __Dockerfile__, which is ready to use with the __bxarm-8.50.6.deb__ installer. Once you get your local copy of the entire repository by cloning it, the [__Dockerfile__](images/Dockerfile) can be edited to match newer versions. The same is true for the optional accompanying [__scripts__](scripts). The repository also brings an example project to make it easy to perform initial [tests](tests/c-stat).
 
-Clone the `bxarm-docker` repository to your local host.
+Clone the `bxarm-docker` repository to your $USER home directory in the local host.
 ```sh
-$ git clone https://github.com/iarsystems/bxarm-docker.git
+$ git clone https://github.com/iarsystems/bxarm-docker.git ~/bxarm-docker
 ```
 
 Copy the `bxarm-8.50.6.deb` installer package to `~/bxarm-docker/images/`, the same folder where the __Dockerfile__ is located.

@@ -1,3 +1,10 @@
+# What's new?
+
+This repository has been archived in favor of a [newer and revamped tutorial available here](https://github.com/iarsystems/bx-docker).
+The new tutorial provides a Dockerfile and Scripts that works with newer versions of the IAR Build Tools packages for any of the currently supported architectures. 
+
+If you were following this repository before, please [star and start watching this one](https://github.com/iarsystems/bx-docker).
+
 # Tutorial: Docker images for IAR Build tools on Linux hosts
 
 The [IAR Build Tools on Linux hosts][iar-bx-url] requires a separate license. Please feel free to [contact us](https://www.iar.com/about-us/contact) if you would like to learn how to get access to them.
